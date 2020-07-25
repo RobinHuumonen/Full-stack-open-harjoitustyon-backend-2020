@@ -1,0 +1,12 @@
+  
+POST http://localhost:3001/api/recipes 
+Content-Type: application/json
+
+{
+      "src": "https://c7.staticflickr.com/9/8785/28687743710_3580fcb5f0_b.jpg",
+      "thumbnail": "https://c7.staticflickr.com/9/8785/28687743710_3580fcb5f0_b.jpg",
+      "thumbnailWidth": 258,
+      "thumbnailHeight": 258,
+      "caption": "Red Zone - Paris (Tom Eversley - isorepublic.com)",
+      "thumbnailCaption": "rd"
+}
