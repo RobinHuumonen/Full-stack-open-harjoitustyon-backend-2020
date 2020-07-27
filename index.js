@@ -3,6 +3,8 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const Recipe = require('./models/recipe')
+const usersRouter = require('./controllers/users')
+
 
 const requestLogger = (req, res, nxt) => {
   console.log('Method:', req.method)
@@ -33,6 +35,9 @@ app.use(express.static('build'))
 app.use(express.json())
 app.use(cors())
 app.use(requestLogger)
+
+app.use('/api/users', usersRouter)
+
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')

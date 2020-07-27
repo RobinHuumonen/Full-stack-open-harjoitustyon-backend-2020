@@ -37,6 +37,10 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
       type: String,
       required: true,
     },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
   })
 
   recipeSchema.set('toJSON', {
