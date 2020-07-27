@@ -1,0 +1,12 @@
+POST http://localhost:3001/api/recipes
+Content-Type: application/json 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjVmMWVkNDg0ZDAzNDlmMTYzMDdkNzE3MSIsImlhdCI6MTU5NTg1NjAzOX0.t01RSXPSFM0OH4KKWm_eE1YBkX4pA7Lq-1HSEVPBLr4
+
+    {
+      "src": "https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_b.jpg",
+      "thumbnail": "https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_n.jpg",
+      "thumbnailWidth": 258,
+      "thumbnailHeight": 258,
+      "caption": "Recipe1",
+      "thumbnailCaption": "Recipe1"
+  }

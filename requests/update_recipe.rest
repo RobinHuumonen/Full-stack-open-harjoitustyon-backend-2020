@@ -1,12 +1,13 @@
   
 PUT http://localhost:3001/api/recipes/5f1c259747a84c51d0d342e1
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjVmMWVhYjcyMGZmZmYzNjFiODQ4ZjZlNyIsImlhdCI6MTU5NTg1MjA4OX0.8UFAMfmXE9FwrMKepwyXQ-oDka56NeIDlcTD4vMSdQc
 
-{
-      "src": "https://c7.staticflickr.com/9/8569/28941134686_d57273d933_b.jpg",
-      "thumbnail": "https://c7.staticflickr.com/9/8569/28941134686_d57273d933_n.jpg",
+  {
+      "src": "https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_b.jpg",
+      "thumbnail": "https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_n.jpg",
       "thumbnailWidth": 258,
       "thumbnailHeight": 258,
-      "caption": "Recipe2",
-      "thumbnailCaption": "Recipe2"
-}
+      "caption": "Flower Interior Macro",
+      "thumbnailCaption": "Flower Interior Macro"
+  }
