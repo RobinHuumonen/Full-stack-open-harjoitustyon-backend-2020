@@ -2,6 +2,7 @@ const recipesRouter = require('express').Router()
 const jwt = require('jsonwebtoken')
 const Recipe = require('../models/recipe')
 const User = require('../models/user')
+const logger = require('../utils/logger')
 
 const thumbnailWidth = 258
 const thumbnailHeight = 258
@@ -43,6 +44,7 @@ recipesRouter.post('/', async (req, res) => {
   const body = req.body
 
   const decodedToken = jwt.verify(req.token, process.env.SECRET)
+
   if (!req.token || !decodedToken.id) {
     return res.status(401).json({ error: 'token missing or invalid' })
   }
@@ -55,22 +57,27 @@ recipesRouter.post('/', async (req, res) => {
     thumbnailWidth,
     thumbnailHeight,
     caption: body.caption,
-    thumbnailCaption: body.thumbnailCaption
+    thumbnailCaption: body.thumbnailCaption,
+    user: user._id
   })
 
   const savedRecipe = await recipe.save()
   user.recipes = user.recipes.concat(savedRecipe._id)
   await user.save()
 
-  res.json(savedRecipe.toJSON())
+  res.status(201).json(savedRecipe.toJSON())
 })
 
 recipesRouter.put('/:id', async (req, res, nxt) => {
   const body = req.body
 
-  if (!req.token) {
+  const decodedToken = jwt.verify(req.token, process.env.SECRET)
+
+  if (!req.token || !decodedToken.id) {
     return res.status(401).json({ error: 'token missing or invalid' })
   }
+
+  const user = await User.findById(decodedToken.id)
 
   const newRecipe = {
     src: body.src,
@@ -78,19 +85,15 @@ recipesRouter.put('/:id', async (req, res, nxt) => {
     thumbnailWidth,
     thumbnailHeight,
     caption: body.caption,
-    thumbnailCaption: body.thumbnailCaption
+    thumbnailCaption: body.thumbnailCaption,
+    user: user._id
   }
 
-  const decodedToken = jwt.verify(req.token, process.env.SECRET)
-
   const recipe = await Recipe.findById(req.params.id)
-  const user = await User.findById(decodedToken.id)
-
-  console.log(recipe.user);
 
   if (recipe.user.toString() === user._id.toString()) {
     const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, newRecipe, { new: true })
-    res.json(updatedRecipe.toJSON())
+    res.status(200).json(updatedRecipe.toJSON())
   } else {
     return res.status(401).json({ error: 'token missing or invalid' })
   }

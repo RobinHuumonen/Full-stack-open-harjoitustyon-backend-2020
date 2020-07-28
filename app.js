@@ -11,6 +11,7 @@ const logger = require('./utils/logger')
 const mongoose = require('mongoose')
 
 mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
 
 logger.info('connecting to', config.MONGODB_URI)
 
