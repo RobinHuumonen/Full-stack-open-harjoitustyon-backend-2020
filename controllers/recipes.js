@@ -2,7 +2,6 @@ const recipesRouter = require('express').Router()
 const jwt = require('jsonwebtoken')
 const Recipe = require('../models/recipe')
 const User = require('../models/user')
-const logger = require('../utils/logger')
 
 const thumbnailWidth = 258
 const thumbnailHeight = 258
@@ -60,6 +59,7 @@ recipesRouter.post('/', async (req, res) => {
     thumbnailCaption: body.thumbnailCaption,
     user: user._id
   })
+  
 
   const savedRecipe = await recipe.save()
   user.recipes = user.recipes.concat(savedRecipe._id)
