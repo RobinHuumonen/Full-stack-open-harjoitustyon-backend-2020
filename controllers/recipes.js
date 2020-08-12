@@ -3,8 +3,8 @@ const jwt = require('jsonwebtoken')
 const Recipe = require('../models/recipe')
 const User = require('../models/user')
 
-const thumbnailWidth = 258
-const thumbnailHeight = 258
+const thumbnailWidth = 436
+const thumbnailHeight = 436
 
 recipesRouter.get('/', async (req, res) => {
   const recipes = await Recipe
