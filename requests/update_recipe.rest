@@ -1,7 +1,7 @@
   
 PUT http://localhost:3001/api/recipes/5f1fbab8cba4b57a64d1bac8
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjVmMWVkNDg0ZDAzNDlmMTYzMDdkNzE3MSIsImlhdCI6MTU5NTkxNzE1M30.MLkoSP3e26cqF14RZrA63RNkWWzIT6Hupr53jARRGcI
+Authorization: bearer 
 
   {
     "src": "https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_b.jpg",
